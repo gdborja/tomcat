@@ -36,6 +36,12 @@ sudo tar xf apache-tomcat-10.0.12.tar.gz -C /opt/tomcat/
 sudo chown -R tomcat: /opt/tomcat/
  ```
 
+ Renombrar el directorio de instalación creando un enlace un enlace simbólico.
+
+ ```console
+ sudo ln -s /opt/tomcat/apache-tomcat-10.0.12/ /opt/tomcat/apache-tomcat
+ ```
+
 Crear el fichero de configuración ***/etc/systemd/system/tomcat10.service***
 
 ```console
@@ -73,7 +79,7 @@ systemctl status tomcat10
 
 #Acceso a Apache Tomcat
 
-Puede suceder que al instalar el servicio haya incopatibilidades de puertos, ya que pueden estar siendo utilizados por otros servicios. En caso de error cambiar la configuración del puerto en el fichero **server.xml** ubicado en ***/opt/tomcat/apache-tomcat-10.0.12/conf***
+Puede suceder que al instalar el servicio haya incompatibilidades de puertos, ya que pueden estar siendo utilizados por otros servicios. En caso de error cambiar la configuración del puerto en el fichero **server.xml** ubicado en ***/opt/tomcat/apache-tomcat-10.0.12/conf/***
 
 ```console
 sudo nano /opt/tomcat/apache-tomcat-10.0.12/conf/server.xml
